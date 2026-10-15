@@ -20,8 +20,15 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: node:22-bookworm-slim
+    services:
+      redis:
+        image: redis
+        ports:
+          - 6379/tcp
     steps:
       - name: Show node version
         run: |
           node --version
           cat /etc/os-release
+          node -e "const s=require('net').connect(6379,'redis',()=>{s.write('PING\r\n')});s.on('data',d=>{console.log(d.toString());s.end()})"
+
