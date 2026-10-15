@@ -2,7 +2,7 @@ name: CI Build for custom actions
 on:
   push:
     branches: [ main ]
-    paths: [ './hello-world-docker-action/**' ]
+    paths: [ './hello-world-action/**' ]
   workflow_dispatch:
 
 permissions:
@@ -19,7 +19,7 @@ jobs:
 
       - name: Custom action
         id: hello-action
-        uses: $/hello-world-docker-action
+        uses: $/hello-world-action
         with:
           who-to-greet: '@mrhaki'
 
