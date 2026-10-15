@@ -36,6 +36,11 @@ jobs:
     runs-on: ubuntu-latest
     container: alpine:3.22
     steps:
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get isntall git
+
       - name: Checkout
         uses: actions/checkout@v6
 
