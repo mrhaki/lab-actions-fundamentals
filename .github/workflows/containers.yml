@@ -23,7 +23,8 @@ jobs:
       env:
         MY_SETTING: from-the-container-block
     steps:
-      - run: |
+      - name: Show node version
+        run: |
           node --version
           cat /etc/os-release
           echo "MY_SETTING=$MY_SETTING"
