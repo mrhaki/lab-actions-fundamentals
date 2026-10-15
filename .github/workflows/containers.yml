@@ -42,7 +42,9 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v6
-
+        with:
+          persist-credentials: false
+          
       - name: Needs git and bash
         shell: bash
         run: git log -1
