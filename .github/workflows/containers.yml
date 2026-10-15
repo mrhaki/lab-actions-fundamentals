@@ -38,8 +38,7 @@ jobs:
     steps:
       - name: Install tools
         run: |
-          sudo apt-get update
-          sudo apt-get isntall git
+          apk add --no-cache bash git
 
       - name: Checkout
         uses: actions/checkout@v6
