@@ -2,6 +2,8 @@
 
 Repo for the `GitHub Actions Fundamentals` training.
 
+[![GitHub Actions Demo](https://github.com/mrhaki/lab-actions-fundamentals/actions/workflows/github-actions-demo.yml/badge.svg)](https://github.com/mrhaki/lab-actions-fundamentals/actions/workflows/github-actions-demo.yml)
+
 ## 👉 Objectives
 
 - Understand the __basic components__ and vocabulary of GitHub Actions
