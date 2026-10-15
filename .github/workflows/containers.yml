@@ -1,0 +1,15 @@
+name: GitHub Actions Workshop Containers
+
+on:
+  workflow_dispatch:
+
+jobs:
+  step-conainer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Custom docker image
+        uses: 'docker://alpine:3.22'
+        with:
+          entrypoint: /bin/sh
+          args: -c "cat /etc/os-release"
+          
