@@ -1,4 +1,4 @@
-name: GitHub Actions Workshop Containers
+name: GitHub Actions Containers
 
 on:
   workflow_dispatch:
