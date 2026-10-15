@@ -2,7 +2,7 @@ name: CI Build for custom actions
 on:
   push:
     branches: [ main ]
-    paths: [ '.github/workflows/hello-world-docker-action/**' ]
+    paths: [ './hello-world-docker-action/**' ]
   workflow_dispatch:
 
 permissions:
@@ -16,16 +16,15 @@ jobs:
         uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
+
       - name: Custom action
         id: hello-action
         uses: $/hello-world-docker-action
         with:
           who-to-greet: '@mrhaki'
+
       - name: Show time
         run: echo "The time was $TIME when the action said hello"
         env:
           TIME: ${{ steps.hello-action.outputs.time }}
 
-        shell: pwsh
-        env:
-          TIME: ${{ steps.hello-action.outputs.time }}
