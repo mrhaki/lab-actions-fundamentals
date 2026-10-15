@@ -13,6 +13,11 @@ on:
     - cron: '15 6 * * 0'
       timezone: "Europe/Amsterdam"
   workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        required: true
+        description: 'Deployment environment'
 
 jobs:
   build:
