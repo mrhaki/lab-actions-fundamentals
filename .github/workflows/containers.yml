@@ -3,6 +3,9 @@ name: GitHub Actions Containers
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  
 jobs:
   step-conainer:
     runs-on: ubuntu-latest
