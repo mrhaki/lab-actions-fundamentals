@@ -31,4 +31,15 @@ jobs:
           node --version
           cat /etc/os-release
           node -e "const s=require('net').connect(6379,'redis',()=>{s.write('PING\r\n')});s.on('data',d=>{console.log(d.toString());s.end()})"
-
+  
+  missing-tools:
+    runs-on: ubuntu:latest
+    container: alpine:3.22
+    defaults:
+      run: 
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Git log
+        run: it log -1
