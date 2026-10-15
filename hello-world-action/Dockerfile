@@ -5,7 +5,7 @@ FROM alpine:3.10
 WORKDIR /usr/src
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh .
 
 # Set entrypoint.sh to executable
 RUN chmod +x /usr/src/entrypoint.sh
