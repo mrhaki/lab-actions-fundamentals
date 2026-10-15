@@ -47,4 +47,6 @@ jobs:
           
       - name: Needs git and bash
         shell: bash
-        run: git log -1
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git log -1
