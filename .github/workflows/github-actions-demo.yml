@@ -26,5 +26,7 @@ jobs:
         run: echo ${BRANCH_NAME}
         env:
           BRANCH_NAME: ${{ github.ref_name }}
-      - name: All files in the repository
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+      - name: List all files in the repository
         run: ls -d ./
