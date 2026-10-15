@@ -15,8 +15,7 @@ jobs:
 
   job-container:
     runs-on: ubuntu:latest
-    container:
-      image: node:22-bookworm-slim
+    container: node:22-bookworm-slim
     steps:
       - name: Show node version
         run: |
