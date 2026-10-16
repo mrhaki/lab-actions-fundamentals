@@ -31,4 +31,4 @@ runs:
       shell: pwsh
       working-directory: ${{ github.action_path }}
       env:
-        time: ${{ steps.get-time.outputs.time }}
+        TIME: ${{ steps.get-time.outputs.time }}

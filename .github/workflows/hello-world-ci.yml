@@ -62,6 +62,6 @@ jobs:
 
       - name: Show time
         run: echo "The time was $TIME when the action said hello"
-        shell: pwsh
+        shell: bash
         env:
           TIME: ${{ steps.hello-composite-pwsh-action.outputs.time }}
