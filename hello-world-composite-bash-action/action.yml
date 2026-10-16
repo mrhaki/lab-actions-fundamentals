@@ -5,9 +5,18 @@ inputs:
     required: true
     description: Who to greet
     default: 'world'
+outputs:
+  time:
+    description: 'The time we greeted you'
+    value: ${{ steps.time.output.time }}
 runs:
   using: composite
   steps:
     - name: Set greeting
       run: echo ${{ inputs.who-to-greet }}
       shell: bash
+
+    - name: Get time
+      id: time
+      shell: bash
+      run: echo "time=($date)" >> $GITHUB_OUTPUT
