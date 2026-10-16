@@ -19,7 +19,7 @@ runs:
     - name: Get time
       id: time
       shell: bash
-      run: echo "time=($date)" >> $GITHUB_OUTPUT
+      run: echo "time=$(date)" >> $GITHUB_OUTPUT
 
     - name: Add action path to path
       run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
