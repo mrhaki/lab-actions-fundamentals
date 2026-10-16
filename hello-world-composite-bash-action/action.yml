@@ -1,0 +1,13 @@
+name: Hello world bash
+description: Saying hello
+inputs:
+  who-to-greet:
+    required: true
+    description: Who to greet
+    default: 'world'
+runs:
+  using: composite
+  steps:
+    - name: Set greeting
+      run: echo ${{ inputs.who-to-greet }}
+      shell: bash
