@@ -21,6 +21,10 @@ runs:
       shell: bash
       run: echo "time=($date)" >> $GITHUB_OUTPUT
 
+    - name: Add action path to path
+      run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+      shell: bash
+
     - name: Say goodbye
-      run: ./goodby.sh
+      run: goodby.sh
       shell: bash
