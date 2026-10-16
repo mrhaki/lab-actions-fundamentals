@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directories:
+      - "./"
+      - "./hello-world-action"
+      - "./hello-world-composite-bash-action"
+      - "./hello-world-composite-pwsh-action"
+      - "./hello-world-composite-python-action"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: "3"
