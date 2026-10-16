@@ -167,10 +167,14 @@ The job fails: `bash` isn't available (`OCI runtime exec failed ... bash: not fo
 
       - name: Needs git and bash
         shell: bash
-        run: git log -1
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git log -1
 ```
 
 </details>
+
+The container user can differ from the owner of the mounted workspace. Trust only `$GITHUB_WORKSPACE` before running Git commands to avoid a `detected dubious ownership` error. Checkout's safe-directory setting uses a temporary home directory and does not carry over to later `run` steps.
 
 > **Note**
 > Installing tools at the start of every run is slow and fragile. Better options are to:
