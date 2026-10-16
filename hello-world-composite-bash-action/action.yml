@@ -20,3 +20,7 @@ runs:
       id: time
       shell: bash
       run: echo "time=($date)" >> $GITHUB_OUTPUT
+
+    - name: Say goodbye
+      run: ./goodby.sh
+      shell: bash

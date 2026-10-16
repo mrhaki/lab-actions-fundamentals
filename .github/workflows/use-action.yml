@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-26.04
     steps:
       - name: Say hello
-        uses: $/hello-world-action
+        uses: $/hello-world-composite-bash-action
         with:
           who-to-greet: '@mrhaki'
