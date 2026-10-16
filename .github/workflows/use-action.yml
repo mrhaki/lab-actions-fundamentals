@@ -1,13 +1,14 @@
 name: Test custom action
+on: [workflow_dispatch]
 
-on:
-  workflow_dispatch:
+permissions:
+  contents: read
 
 jobs:
   test-action:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-26.04
     steps:
-      - name: Run custom action
+      - name: Say hello
         uses: $/hello-world-action
         with:
           who-to-greet: '@mrhaki'
