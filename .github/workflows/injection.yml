@@ -13,6 +13,5 @@ jobs:
       - name: Print message
         run: |
           echo "Injection workflow triggered by pull request. ${TITLE}"
-          echo "Direct access to pull request title: ${{ github.event.pull_request.title }}"
         env:
           TITLE: ${{ github.event.pull_request.title }}
