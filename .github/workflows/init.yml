@@ -25,7 +25,7 @@ jobs:
           gh issue create -t "❤️ What was the best feature you learned yesterday?" -b "What was the GitHub Actions feature you liked best that you have learned about yesterday the first time? If you want add your hobby to share it with the group. Comment below 👇"        
           gh issue create -t "🔍 Retro Day two: What was good?" -b "What did you like on day two of this course? What was good? Comment below 👇"
           gh issue create -t "🔍 Retro Day two: What can be improved?" -b "What can be improved? What was missing? Any additional comments? Comment below 👇"
-      - uses: actions/upload-artifact@v7.0.0
+      - uses: actions/upload-artifact@v7.0.2
         with:
           name: dist
           path: /README.md
@@ -34,7 +34,7 @@ jobs:
     needs: initialize_repo
     environment: prod
     steps:
-      - uses: actions/upload-artifact@v7.0.0
+      - uses: actions/upload-artifact@v7.0.2
         with:
           name: dist
       - run: | 
