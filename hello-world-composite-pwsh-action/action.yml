@@ -15,7 +15,7 @@ runs:
   using: composite
   steps:
     - name: Set greeting
-      run: echo ${{ inputs.who-to-greet }}
+      run: Write-Output ${{ inputs.who-to-greet }}
       shell: pwsh
 
     - name: Get time
