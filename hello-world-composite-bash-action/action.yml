@@ -28,3 +28,5 @@ runs:
     - name: Say goodbye
       run: goodby.sh
       shell: bash
+      env:
+        time: ${{ steps.time.outputs.time }}
