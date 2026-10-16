@@ -65,3 +65,11 @@ jobs:
         shell: bash
         env:
           TIME: ${{ steps.hello-composite-pwsh-action.outputs.time }}
+
+      - name: Debug
+        run: |
+          Write-Host "::debug::Debugging composite PowerShell action"
+          Write-Host "::debug::TIME is $env:TIME"
+        shell: pwsh
+        env:
+          TIME: ${{ steps.hello-composite-pwsh-action.outputs.time }}
