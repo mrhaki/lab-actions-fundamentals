@@ -1,8 +1,11 @@
 name: CI Build for custom actions
 on:
   push:
-    branches: [ main ]
-    paths: [ './hello-world-action/**' ]
+    branches:
+      - main
+    paths: 
+      - './hello-world-action/**'
+      - './hello-world-*-action/**'
   workflow_dispatch:
 
 permissions:
@@ -14,8 +17,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
-        with:
-          persist-credentials: false
 
       - name: Custom action
         id: hello-action
@@ -28,3 +29,20 @@ jobs:
         env:
           TIME: ${{ steps.hello-action.outputs.time }}
 
+  composite-bash:
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Custom composite bash action
+        id: hello-composite-bash-action
+        uses: $/hello-world-composite-bash-action
+        with:
+          who-to-greet: '@mrhaki'
+
+      - name: Show time
+        run: echo "The time was $TIME when the action said hello"
+        env:
+          TIME: ${{ steps.hello-composite-bash-action.outputs.time }}
+  
