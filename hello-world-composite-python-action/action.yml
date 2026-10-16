@@ -26,7 +26,7 @@ runs:
         print(f"Hello, {who_to_greet}!")
 
         # Workflow command: show an annotation in the run summary
-        print(f"::notice::Greeted **{who_to_greet}**")
+        print(f"::notice::Greeted <b>{who_to_greet}</b>")
       env:
         WHO_TO_GREET: ${{ inputs.who-to-greet }}
 
