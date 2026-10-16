@@ -73,3 +73,21 @@ jobs:
         shell: pwsh
         env:
           TIME: ${{ steps.hello-composite-pwsh-action.outputs.time }}
+
+  composite-python:
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Custom composite Python action
+        id: hello-composite-python-action
+        uses: $/hello-world-composite-python-action
+        with:
+          who-to-greet: '@mrhaki'
+
+      - name: Show time
+        run: echo "The time was $TIME when the action said hello"
+        shell: bash
+        env:
+          TIME: ${{ steps.hello-composite-python-action.outputs.time }}
