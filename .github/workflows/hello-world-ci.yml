@@ -43,6 +43,7 @@ jobs:
 
       - name: Show time
         run: echo "The time was $TIME when the action said hello"
+        shell: bash
         env:
           TIME: ${{ steps.hello-composite-bash-action.outputs.time }}
   

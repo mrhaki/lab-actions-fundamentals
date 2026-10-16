@@ -8,7 +8,7 @@ inputs:
 outputs:
   time:
     description: 'The time we greeted you'
-    value: ${{ steps.time.output.time }}
+    value: ${{ steps.get-time.outputs.time }}
 runs:
   using: composite
   steps:
@@ -17,7 +17,7 @@ runs:
       shell: bash
 
     - name: Get time
-      id: time
+      id: get-time
       shell: bash
       run: echo "time=$(date)" >> $GITHUB_OUTPUT
 
@@ -29,4 +29,4 @@ runs:
       run: goodby.sh
       shell: bash
       env:
-        time: ${{ steps.time.outputs.time }}
+        time: ${{ steps.get-time.outputs.time }}
