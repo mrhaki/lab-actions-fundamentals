@@ -1,0 +1,20 @@
+name: Injection Workflow
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+
+permissions:
+  contents: read
+
+jobs:
+  inject:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: |
+          echo "Injection workflow triggered by pull request. ${TITLE}"
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
