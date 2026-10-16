@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print message
-        run: echo "Injection workflow triggered by pull request. ${TITLE}"
+        run: |
+          echo "Injection workflow triggered by pull request. ${TITLE}"
+          echo "Direct access to pull request title: ${{ github.event.pull_request.title }}"
         env:
           TITLE: ${{ github.event.pull_request.title }}
