@@ -15,20 +15,20 @@ runs:
   using: composite
   steps:
     - name: Set greeting
-      run: Write-Output ${{ inputs.who-to-greet }}
+      run: Write-Host ${{ inputs.who-to-greet }}
       shell: pwsh
 
     - name: Get time
       id: get-time
       shell: pwsh
-      run: Write-Output "time=$(Get-Date)" >> $GITHUB_OUTPUT
+      run: Write-Host "time=$(Get-Date)" >> $GITHUB_OUTPUT
 
     - name: Add action path to path
       run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
       shell: pwsh
 
     - name: Say goodbye
-      run: goodbye.ps1
+      run: ./goodbye.ps1
       shell: pwsh
       env:
         time: ${{ steps.get-time.outputs.time }}
