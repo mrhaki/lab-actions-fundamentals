@@ -22,23 +22,7 @@ runs:
 
     - name: Say hello
       shell: python
-      run: |
-        import os
-        who_to_greet = os.getenv("WHO_TO_GREET")
-        print(f"Hello, {who_to_greet}!")
-
-        # Workflow command: show an annotation in the run summary
-        print(f"::notice::Greeted <b>{who_to_greet}</b>")
+      run: python greet.py
+      working-directory: ${{ github.action_path }}
       env:
         WHO_TO_GREET: ${{ inputs.who-to-greet }}
-
-    - name: Set output time
-      id: get-time
-      shell: python
-      run: |
-        import os
-        from datetime import datetime, timezone
-
-        # Write outputs to the file in GITHUB_OUTPUT (not ::set-output)
-        with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
-            output.write(f"time={datetime.now(timezone.utc).isoformat()}\n")        
