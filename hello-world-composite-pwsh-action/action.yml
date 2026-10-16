@@ -1,0 +1,34 @@
+name: Hello world PowerShell
+
+inputs:
+  who-to-greet:
+    required: true
+    description: Who to greet
+    default: 'world'
+
+outputs:
+  time:
+    description: 'The time we greeted you'
+    value: ${{ steps.get-time.outputs.time }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set greeting
+      run: echo ${{ inputs.who-to-greet }}
+      shell: pwsh
+
+    - name: Get time
+      id: get-time
+      shell: pwsh
+      run: Write-Output "time=$(Get-Date)" >> $GITHUB_OUTPUT
+
+    - name: Add action path to path
+      run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+      shell: pwsh
+
+    - name: Say goodbye
+      run: goodbye.ps1
+      shell: pwsh
+      env:
+        time: ${{ steps.get-time.outputs.time }}

@@ -1,0 +1,1 @@
+Write-Output "Goodbye! The time was $env:time"

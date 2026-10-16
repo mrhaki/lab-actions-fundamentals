@@ -6,6 +6,7 @@ on:
     paths: 
       - './hello-world-action/**'
       - './hello-world-composite-bash-action/**'
+      - './hello-world-composite-pwsh-action/**'
   workflow_dispatch:
 
 permissions:
@@ -47,3 +48,20 @@ jobs:
         env:
           TIME: ${{ steps.hello-composite-bash-action.outputs.time }}
   
+    composite-pwsh:
+      runs-on: ubuntu-26.04
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v7.0.1
+
+        - name: Custom composite PowerShell action
+          id: hello-composite-pwsh-action
+          uses: $/hello-world-composite-pwsh-action
+          with:
+            who-to-greet: '@mrhaki'
+
+        - name: Show time
+          run: echo "The time was $TIME when the action said hello"
+          shell: pwsh
+          env:
+            TIME: ${{ steps.hello-composite-pwsh-action.outputs.time }}
