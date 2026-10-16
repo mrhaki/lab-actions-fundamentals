@@ -16,7 +16,7 @@ runs:
   using: composite
   steps:
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v7
 
     - name: Say hello
       shell: python
@@ -26,7 +26,7 @@ runs:
         print(f"Hello, {who_to_greet}!")
 
         # Workflow command: show an annotation in the run summary
-        print(f"::notice::Greeted {who}")
+        print(f"::notice::Greeted {who_to_greet}")
       env:
         WHO_TO_GREET: ${{ inputs.who-to-greet }}
 
