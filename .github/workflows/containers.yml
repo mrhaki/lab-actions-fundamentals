@@ -41,7 +41,7 @@ jobs:
           apk add --no-cache bash git
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
           
